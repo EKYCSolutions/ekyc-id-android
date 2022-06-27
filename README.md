@@ -6,7 +6,7 @@
 ![](https://img.shields.io/badge/platform-android-blue) ![](https://img.shields.io/github/v/tag/EKYCSolutions/ekyc-id-android?label=version)
 
 
-The EkycID Android SDK lets you build a factastic OCR and Face Recognition experienced in your Android app.
+The EkycID Android SDK lets you build a fantastic OCR and Face Recognition experienced in your Android app.
 
 With one quick scan, your users will be able to extract information from thier identity cards, passports, driver licenses, license plate, vehicle registration, covid-19 vaccinate card, and any other document by government-issued.
 
