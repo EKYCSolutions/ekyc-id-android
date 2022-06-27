@@ -3,7 +3,7 @@
 
 <h1>EkycID SDK for Android</h1><br>
 
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/EKYCSolutions/ekyc-id-android)
+![](https://img.shields.io/badge/platform-android-blue) ![](https://img.shields.io/github/v/tag/EKYCSolutions/ekyc-id-android?label=version)
 
 
 The EkycID Android SDK lets you build a factastic OCR and Face Recognition experienced in your Android app.
@@ -240,3 +240,5 @@ If you are combining EkycID library with other libraries that contain native cod
   <a href="https://ekycsolutions.com/">ekycsolutions.com</a>
 </p>
 
+### License
+© 2022 EKYC Solutions Co, Ltd. All rights reserved.
