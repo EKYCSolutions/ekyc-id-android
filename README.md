@@ -1,5 +1,5 @@
 
-![image](https://user-images.githubusercontent.com/81238558/175767662-be4dc9ba-a6bd-459d-aaa3-f8ad0c96aa37.png)
+![ekyc-logo](https://user-images.githubusercontent.com/81238558/175898689-22d5a275-45ec-4a5e-89c7-988dbbb073b0.png)
 
 <h1>EkycID SDK for Android</h1><br>
 
