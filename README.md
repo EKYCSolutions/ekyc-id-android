@@ -37,12 +37,11 @@ Let's start the quick start application within Android Studio.
 <h4>Adding EkycID dependency</h4>
 <p>In your <code>build.gradle</code>, add EkycID as a dependency</p>
 
-<pre class="notranslate">
-<code>dependencies {
+```ruby
+dependencies {
     implementation project(path: ':ekyc-id')
 }
-</code>
-</pre>
+```
 
 <h4>Import JavaDoc</h4>
 <p dir="auto">Android studio 3.0 should automatically import javadoc from dependency. If that doesn't happen, you can do that manually by following these steps:</p>
@@ -61,36 +60,38 @@ Let's start the quick start application within Android Studio.
 <ol dir="auto">
 <li>
 <p>In your main activity, EventListener suppose to be automatically import. If that doesn't happen, you can do that manually:</p>
-<pre class="notranslate">
+
+```ruby
 import com.ekycsolutions.ekycid.models.FrameStatus
 import com.ekycsolutions.ekycid.documentscanner.DocumentScannerResult
 import com.ekycsolutions.ekycid.documentscanner.DocumentScannerCameraView
 import com.ekycsolutions.ekycid.documentscanner.DocumentScannerEventListener
 import com.ekycsolutions.ekycid.livenessdetection.*
-</code>
-</pre>
+```
+     
 </li>
 
 <li>
 <p>In your main activity, define event variable:</p>
-<pre>
-<code>class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {
-  val initializer = Initializer(this)
-  <br></br>
-  //define ekycid camera view event
-  lateinit var livenessDetectionView: LivenessDetectionCameraView
-  <br></br>
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-  }
+
+```ruby
+     class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {\
+     val initializer = Initializer(this)
+     
+     //define ekycid camera view event
+     lateinit var livenessDetectionView: LivenessDetectionCameraView
+     
+     override fun onCreate(savedInstanceState: Bundle?) {
+          super.onCreate(savedInstanceState)
+     }
 }
-</code>
-</pre>
+```
+
 </li>
 
 <li>
   <p>In <code>onResume</code> cycle call initializer:</p>
-  <pre><code>
+  ```ruby
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onResume() {
         super.onResume()
@@ -108,36 +109,36 @@ import com.ekycsolutions.ekycid.livenessdetection.*
             }
         }
     }
-</code>
-</pre>
+```
+     
 </li>
 
 <li>
   <p>In while camera view recently focus, log the frame status:</p>
-  <pre><code>
+     
+  ```ruby
     override fun onFrame(frameStatus: FrameStatus) {
         if (frameStatus != FrameStatus.PROCESSING) {
             Log.d(TAG, "onFrame: $frameStatus")
         }
     }
-</code>
-</pre>
+```
 </li>
 
 <li>
 <p>In <code>onPromptCompleted</code> when front image success, call the next back image of ID card:
- <pre><code>
+ ```ruby
     override fun onPromptCompleted(completedPromptIndex: Int, succeed: Boolean, progress: Float) {
         Log.d(TAG, "onPromptCompleted")
         this.livenessDetectionView.nextImage()
     }
-</code>
-</pre>
+```
 </li>
 
 <li>
-  <p>Find out the full sample code here:</p>
-  <pre><code>
+<p>Find out the full sample code here:</p>
+
+```ruby
 package com.ekycsolutions.ekycid.example
 
 import android.os.Build
@@ -213,8 +214,7 @@ class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {
         Log.d(TAG, "onCountDownChanged - current: $current, max: $max")
     }
 }
-</code>
-</pre>
+```
 </li>
 </ol>
 
