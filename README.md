@@ -29,7 +29,7 @@ To see all of these features at work download our free demo app:
      height="100"/>
 </a>
 
-# Quick Start
+# Get Started
 Let's start the quick start application within Android Studio.
 
 ## SDK Integration
