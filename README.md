@@ -29,137 +29,70 @@ To see all of these features at work download our free demo app:
      height="100"/>
 </a>
 
-# Get Started
-Let's start the quick start application within Android Studio.
+# 1. Requirements
+- minSdkVersion: 21
+- targetSdkVersion: 32
+- compileSdkVersion: 32
 
-## SDK Integration
-<h4>Adding EkycID dependency</h4>
-<p>In your <code>build.gradle</code>, add EkycID as a dependency</p>
+# 2. Installation
+**Step 1:** Add the JitPack repository to your root build.gradle at the end of repositories.
 
-```ruby
-dependencies {
-    implementation project(path: ':ekyc-id')
-}
-```
-
-### Import JavaDoc
-<p dir="auto">Android studio 3.0 should automatically import javadoc from dependency. If that doesn't happen, you can do that manually by following these steps:</p>
-<ol dir="auto">
-<li>In Android Studio project sidebar, ensure <a href="https://developer.android.com/sdk/installing/studio-androidview.html" rel="nofollow">project view is enabled</a></li>
-<li>Expand <code>External Libraries</code> entry (usually this is the last entry in project view)</li>
-<li>Locate <code>ekyc-id-android</code> entry, right click on it and select <code>Library Properties...</code></li>
-<li>A <code>Library Properties</code> pop-up window will appear</li>
-<li>Click the second <code>+</code> button in bottom left corner of the window (the one that contains <code>+</code> with little globe)</li>
-<li>Window for defining documentation URL will appear</li>
-<li>Enter following address: <code>https://github.com/EKYCSolutions/ekyc-id-android/</code></li>
-<li>Click <code>OK</code></li>
-</ol>
-
-### Performing your first scan</h4>
-<ol dir="auto">
-<li>
-<p>In your main activity, EventListener suppose to be automatically import. If that doesn't happen, you can do that manually:</p>
-
-```ruby
-import com.ekycsolutions.ekycid.models.FrameStatus
-import com.ekycsolutions.ekycid.documentscanner.DocumentScannerResult
-import com.ekycsolutions.ekycid.documentscanner.DocumentScannerCameraView
-import com.ekycsolutions.ekycid.documentscanner.DocumentScannerEventListener
-import com.ekycsolutions.ekycid.livenessdetection.*
-```
-     
-</li>
-
-<li>
-<p>In your main activity, define event variable:</p>
-
-```ruby
-     class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {\
-     val initializer = Initializer(this)
-     
-     //define ekycid camera view event
-     lateinit var livenessDetectionView: LivenessDetectionCameraView
-     
-     override fun onCreate(savedInstanceState: Bundle?) {
-          super.onCreate(savedInstanceState)
+```gradle
+allprojects {
+     repositories {
+          ...
+          maven { url 'https://jitpack.io' }
      }
 }
 ```
+**Step 2:** Add the dependency.
+```gradle
+dependencies {
+     implementation 'com.github.EKYCSolutions:ekyc-id-android:1.0.12'
+}
+```
 
-</li>
+# 3. Usage
 
-<li>
-<p>In <code>onResume</code> call initializer:</p>
+## 3.1. Document Scanner
 
-```ruby
+**Step 1:** Initialize `Initializer` class and called `initializer.start()` in onResume.
+```kotlin
+class MainActivity : AppCompatActivity() {
+    val initializer = Initializer(this)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onResume() {
         super.onResume()
+        
+        // Start initializer here
         initializer.start {
-            runOnUiThread {
-                setContentView(R.layout.activity_main)
-                livenessDetectionView = findViewById(R.id.livenessDetectionView)
-                livenessDetectionView.addListener(this)
-                livenessDetectionView.setOptions(
-                    LivenessDetectionOptions(
-                        arrayListOf(LivenessPromptType.LOOK_LEFT, LivenessPromptType.LOOK_RIGHT, LivenessPromptType.BLINKING)
-                    )
-                )
-                livenessDetectionView.start()
-            }
+            
         }
     }
+}
 ```
-     
-</li>
 
-<li>
-  <p>In while camera view recently focus, log the frame status:</p>
-     
-  ```ruby
-    override fun onFrame(frameStatus: FrameStatus) {
-        if (frameStatus != FrameStatus.PROCESSING) {
-            Log.d(TAG, "onFrame: $frameStatus")
-        }
-    }
+**Step 2:** Add DocumentScannerCameraView to your `layout.xml`
+```xml
+
+<com.ekycsolutions.ekycid.documentscanner.DocumentScannerCameraView
+      android:id="@+id/documentScannerCameraView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+
 ```
-</li>
 
-<li>
-<p>In <code>onPromptCompleted</code> when front image success, call the next back image of ID card:
- ```ruby
-    override fun onPromptCompleted(completedPromptIndex: Int, succeed: Boolean, progress: Float) {
-        Log.d(TAG, "onPromptCompleted")
-        this.livenessDetectionView.nextImage()
-    }
-```
-</li>
-
-<li>
-<p>Find out the full sample code here:</p>
-
-```ruby
-package com.ekycsolutions.ekycid.example
-
-import android.os.Build
-import android.util.Log
-import android.os.Bundle
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import com.ekycsolutions.ekycid.Initializer
-import com.ekycsolutions.ekycid.example.R
-
-import com.ekycsolutions.ekycid.models.FrameStatus
-import com.ekycsolutions.ekycid.documentscanner.DocumentScannerResult
-import com.ekycsolutions.ekycid.documentscanner.DocumentScannerCameraView
-import com.ekycsolutions.ekycid.documentscanner.DocumentScannerEventListener
-import com.ekycsolutions.ekycid.livenessdetection.*
-
-class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {
-    val TAG = "MainActivity"
+**Step 3:** Initialize `DocumentScannerCameraView` and implements `DocumentScannerEventListener`.
+```kotlin
+class MainActivity : AppCompatActivity(), DocumentScannerEventListener {
     val initializer = Initializer(this)
 
-    lateinit var livenessDetectionView: LivenessDetectionCameraView
+    lateinit var documentScannerView: DocumentScannerCameraView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -171,14 +104,10 @@ class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {
         initializer.start {
             runOnUiThread {
                 setContentView(R.layout.activity_main)
-                livenessDetectionView = findViewById(R.id.livenessDetectionView)
-                livenessDetectionView.addListener(this)
-                livenessDetectionView.setOptions(
-                    LivenessDetectionOptions(
-                        arrayListOf(LivenessPromptType.LOOK_LEFT, LivenessPromptType.LOOK_RIGHT, LivenessPromptType.BLINKING)
-                    )
-                )
-                livenessDetectionView.start()
+                documentScannerView = findViewById(R.id.documentScannerView)
+                documentScannerView.addListener(this)
+                documentScannerView.setWhiteList(arrayListOf(ObjectDetectionObjectType.NATIONAL_ID_0.name))
+                documentScannerView.start()
             }
         }
     }
@@ -193,52 +122,114 @@ class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {
         }
     }
 
-    override fun onPromptCompleted(completedPromptIndex: Int, success: Boolean, progress: Float) {
-        Log.d(TAG, "onPromptCompleted")
-        this.livenessDetectionView.nextImage()
-    }
-
-    override fun onAllPromptsCompleted(detection: LivenessDetectionResult) {
-        Log.d(TAG, "onAllPromptsCompleted")
-    }
-
-    override fun onFocus() {
-        Log.d(TAG, "onFocus")
-    }
-
-    override fun onFocusDropped() {
-        Log.d(TAG, "onFocusDropped")
-    }
-
-    override fun onCountDownChanged(current: Int, max: Int) {
-        Log.d(TAG, "onCountDownChanged - current: $current, max: $max")
+    override fun onDetection(detection: DocumentScannerResult) {
+        Log.d(TAG, "onDetection")
     }
 }
 ```
-</li>
-</ol>
 
+## 3.2. Liveness Detection
 
-# Device Requirement
-## Android Version
-<p>Currently EkycID require Android API level 21 or newer. For best performance and compatibility, we recommend at least Android 6.0.</p>
+**Step 1:** Initialize `Initializer` class and called `initializer.start()` in onResume.
+```kotlin
+class MainActivity : AppCompatActivity() {
+    val initializer = Initializer(this)
 
-<h3 dir="auto">Cemera</h3>
-<p>Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least 720p. Note that camera preview resolution is not the same as video recording resolution.</p>
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
-### Processor architecture
-<p>EkycID is distributed with ARMv7, ARM64, x86 and x86_64 native library binaries.
+    @RequiresApi(Build.VERSION_CODES.N)
+    override fun onResume() {
+        super.onResume()
+        
+        // Start initializer here
+        initializer.start {
+            
+        }
+    }
+}
+```
 
-EkycID is a native library, available for multiple platforms. Because of this, EkycID cannot work on devices with obscure hardware architectures. We have compiled EkycID native code only for the most popular Android ABIs.
+**Step 2:** Add DocumentScannerCameraView to your `layout.xml`
+```xml
 
-You should check if the EkycID is supported on the current device. Attempting to call any method from the SDK that relies on native code,  on a device with unsupported CPU architecture will crash your app.
+<com.ekycsolutions.ekycid.livenessDetection.LivenessDetectionCameraView
+      android:id="@+id/livenessDetectionCameraView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
 
-If you are combining EkycID library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries.</p>
+```
 
-### Contact
+**Step 3:** Initialize `LivenessDetectionCameraView` and implements `LivenessDetectionEventListener`.
+```kotlin
+class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {
+    val initializer = Initializer(this)
+
+    lateinit var livenessDetectionCameraView: LivenessDetectionCameraView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    override fun onResume() {
+        super.onResume()
+        initializer.start {
+            runOnUiThread {
+                setContentView(R.layout.activity_main)
+                livenessDetectionCameraView = findViewById(R.id.documentScannerView)
+                livenessDetectionCameraView.addListener(this)
+                livenessDetectionCameraView.setOptions(
+                    LivenessDetectionOptions(
+                         arrayListOf(LivenessPrompt.LOOK_LEFT, LivenessPrompt.LOOK_RIGHT, LivenessPrompt.BLINKING)
+                    )
+                )
+                livenessDetectionCameraView.start()
+            }
+        }
+    }
+
+    override fun onInitialize() {
+        Log.d(TAG, "onInitialize")
+    }
+
+    override fun onFrame(frameStatus: FrameStatus) {
+        if (frameStatus != FrameStatus.PROCESSING) {
+            Log.d(TAG, "onFrame: $frameStatus")
+        }
+    }
+
+    override fun onPromptCompleted(completedPromptIndex: Int, success: Boolean: progress: Float) {
+        Log.d(TAG, "onPromptCompleted")
+    }
+    
+    override fun onAllPromptsCompleted(detection: LivenessDetectionResult) {
+        Log.d(TAG, "onAllPromptsCompleted")
+    }
+    
+    override fun onFocus() {
+        Log.d(TAG, "onFocus")
+    }
+    
+    override fun onFocusDropped() {
+        Log.d(TAG, "onFocusDropped")
+    }
+    
+    override fun onCountDownChanged(current: Int, max: Int) {
+        Log.d(TAG, "onCountDownChanged")
+    }
+}
+```
+
+## 3.3. Perform Face Compare and OCR
+
+To perform face compare and ocr, you can call your server that integrated with our [NodeSDK]() to get face compare score and ocr response respectively.
+
+# 4. Contact
 <p>For any other questions, feel free to contact us at 
   <a href="https://ekycsolutions.com/">ekycsolutions.com</a>
 </p>
 
-### License
+# 5. License
 © 2022 EKYC Solutions Co, Ltd. All rights reserved.
