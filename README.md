@@ -90,8 +90,9 @@ import com.ekycsolutions.ekycid.livenessdetection.*
 </li>
 
 <li>
-  <p>In <code>onResume</code> cycle call initializer:</p>
-  ```ruby
+<p>In <code>onResume</code> call initializer:</p>
+
+```ruby
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onResume() {
         super.onResume()
