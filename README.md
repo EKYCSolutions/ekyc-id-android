@@ -28,12 +28,11 @@ To see all of these features at work download our free demo app:
 <a href='https://play.google.com/store/apps/details?id=com.ekyc.demo_app&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="300" 
      height="100"/>
 </a>
-<br></br>
 
-<h1>Quick Start</h1>
+# Quick Start
 Let's start the quick start application within Android Studio.
 
-<h2>SDK Integration</h2>
+## SDK Integration
 <h4>Adding EkycID dependency</h4>
 <p>In your <code>build.gradle</code>, add EkycID as a dependency</p>
 
@@ -43,7 +42,7 @@ dependencies {
 }
 ```
 
-<h4>Import JavaDoc</h4>
+### Import JavaDoc
 <p dir="auto">Android studio 3.0 should automatically import javadoc from dependency. If that doesn't happen, you can do that manually by following these steps:</p>
 <ol dir="auto">
 <li>In Android Studio project sidebar, ensure <a href="https://developer.android.com/sdk/installing/studio-androidview.html" rel="nofollow">project view is enabled</a></li>
@@ -56,7 +55,7 @@ dependencies {
 <li>Click <code>OK</code></li>
 </ol>
 
-<h4>Performing your first scan</h4>
+### Performing your first scan</h4>
 <ol dir="auto">
 <li>
 <p>In your main activity, EventListener suppose to be automatically import. If that doesn't happen, you can do that manually:</p>
@@ -220,14 +219,14 @@ class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {
 </ol>
 
 
-<h1>Device Requirement</h1>
-<h3 dir="auto">Android Version</h3>
+# Device Requirement
+## Android Version
 <p>Currently EkycID require Android API level 21 or newer. For best performance and compatibility, we recommend at least Android 6.0.</p>
 
 <h3 dir="auto">Cemera</h3>
 <p>Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least 720p. Note that camera preview resolution is not the same as video recording resolution.</p>
 
-<h3 dir="auto">Processor architecture</h3>
+### Processor architecture
 <p>EkycID is distributed with ARMv7, ARM64, x86 and x86_64 native library binaries.
 
 EkycID is a native library, available for multiple platforms. Because of this, EkycID cannot work on devices with obscure hardware architectures. We have compiled EkycID native code only for the most popular Android ABIs.
@@ -236,7 +235,7 @@ You should check if the EkycID is supported on the current device. Attempting to
 
 If you are combining EkycID library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries.</p>
 
-<h2>Contact</h2>
+### Contact
 <p>For any other questions, feel free to contact us at 
   <a href="https://ekycsolutions.com/">ekycsolutions.com</a>
 </p>
