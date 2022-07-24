@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ekycsolutions</groupId>
   <artifactId>ekyc-id</artifactId>
-  <version>1.0.12</version>
+  <version>1.0.13</version>
   <packaging>aar</packaging>
   <dependencies>
     <dependency>
@@ -25,16 +25,16 @@
     <dependency>
       <groupId>org.tensorflow</groupId>
       <artifactId>tensorflow-lite</artifactId>
-      <version>0.0.0-nightly</version>
-    </dependency>
-    <dependency>
-      <groupId>org.tensorflow</groupId>
-      <artifactId>tensorflow-lite-select-tf-ops</artifactId>
-      <version>0.0.0-nightly</version>
+      <version>0.0.0-nightly-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.tensorflow</groupId>
       <artifactId>tensorflow-lite-support</artifactId>
+      <version>0.0.0-nightly-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.tensorflow</groupId>
+      <artifactId>tensorflow-lite-select-tf-ops</artifactId>
       <version>0.0.0-nightly-SNAPSHOT</version>
     </dependency>
     <dependency>
