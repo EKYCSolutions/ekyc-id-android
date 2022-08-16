@@ -4,18 +4,28 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ekycsolutions</groupId>
   <artifactId>ekyc-id</artifactId>
-  <version>1.0.15</version>
+  <version>1.0.16</version>
   <packaging>aar</packaging>
   <dependencies>
     <dependency>
       <groupId>androidx.appcompat</groupId>
       <artifactId>appcompat</artifactId>
-      <version>1.1.0</version>
+      <version>1.2.0</version>
     </dependency>
     <dependency>
       <groupId>androidx.core</groupId>
       <artifactId>core-ktx</artifactId>
       <version>1.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.constraintlayout</groupId>
+      <artifactId>constraintlayout</artifactId>
+      <version>2.1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.beust</groupId>
+      <artifactId>klaxon</artifactId>
+      <version>5.5</version>
     </dependency>
     <dependency>
       <groupId>com.quickbirdstudios</groupId>
@@ -66,6 +76,11 @@
       <groupId>androidx.camera</groupId>
       <artifactId>camera-view</artifactId>
       <version>1.2.0-alpha02</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>4.9.2</version>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
