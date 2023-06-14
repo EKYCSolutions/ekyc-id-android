@@ -239,9 +239,9 @@ Given an image, here are the steps performed on it to determine blurriness:
 1. Warp the image using the perspective transformation matrix to obtain a cropped and transformed image.
 2. Convert the warped image to grayscale.
 3. Apply Gaussian blur to the grayscale image.
-4. Perform Canny Edge Detection on the blurred image.
-5. Calculate the height and width of the edges image.
-6. Count the number of white pixels in the image. 
+4. Perform Canny Edge Detection on the original image. This will produce an output which we will call the edge image. 
+5. Calculate the height and width of the edge image.
+6. Count the number of white pixels in the edge image. 
 7. Calculate the ratio of white pixels to the total number of pixels of the image ( width * height )
 8. If the calculated ratio is less than or equal to the set ratio, the image is determined to be blurry.
 
