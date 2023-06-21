@@ -48,7 +48,7 @@ allprojects {
 **Step 2:** Add the dependency.
 ```gradle
 dependencies {
-     implementation 'com.github.EKYCSolutions:ekyc-id-android:1.0.20'
+     implementation 'com.github.EKYCSolutions:ekyc-id-android:1.0.21'
 }
 ```
 
