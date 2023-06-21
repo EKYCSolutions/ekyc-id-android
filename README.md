@@ -31,8 +31,8 @@ To see all of these features at work download our free demo app:
 
 # 1. Requirements
 - minSdkVersion: 21
-- targetSdkVersion: 32
-- compileSdkVersion: 32
+- targetSdkVersion: 33
+- compileSdkVersion: 33
 
 # 2. Installation
 **Step 1:** Add the JitPack repository to your root build.gradle at the end of repositories.
@@ -48,7 +48,7 @@ allprojects {
 **Step 2:** Add the dependency.
 ```gradle
 dependencies {
-     implementation 'com.github.EKYCSolutions:ekyc-id-android:1.0.12'
+     implementation 'com.github.EKYCSolutions:ekyc-id-android:1.0.20'
 }
 ```
 
