@@ -236,10 +236,30 @@ Less pronounced or fewer detected edges in an image can indicate blurriness or a
 
 Given an image, here are the steps performed on it to determine blurriness: 
 
+Original Image: 
+![Original Image](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/1a35c5f2-e001-4620-bc7f-b8ac45cc4f34)
+
+
 1. Warp the image using the perspective transformation matrix to obtain a cropped and transformed image.
+
+Warped Image:
+![warped](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/0c025544-3b26-4bff-9996-884fa169a9c3)
+
+
 2. Convert the warped image to grayscale.
 3. Apply Gaussian blur to the grayscale image.
-4. Perform Canny Edge Detection on the original image. This will produce an output which we will call the edge image. 
+
+Grayscale Image:
+![grey](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/0405e3b2-f619-41e6-a4d5-a0d1d2a5e012)
+
+
+   
+4. Perform Canny Edge Detection on the original image. This will produce an output which we will call the edge image.
+   
+Edge Image:
+![edges](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/c4463939-417c-42db-91ae-4380226a6af3)
+
+
 5. Calculate the height and width of the edge image.
 6. Count the number of white pixels in the edge image. 
 7. Calculate the ratio of white pixels to the total number of pixels of the image ( width * height )
