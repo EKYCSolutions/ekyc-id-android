@@ -239,21 +239,21 @@ Given an image, here are the steps performed on it to determine blurriness:
 1. Warp the image using the perspective transformation matrix to obtain a cropped and transformed image.
 
 ![warped](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/0c025544-3b26-4bff-9996-884fa169a9c3)
-                                             Warped Image
+                                        
 
 2. Convert the warped image to grayscale.
 3. Apply Gaussian blur to the grayscale image.
 
-Grayscale Image:
+
 ![grey](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/0405e3b2-f619-41e6-a4d5-a0d1d2a5e012)
-                                             Grayscale Image
+                                            
 
    
 4. Perform Canny Edge Detection on the original image. This will produce an output which we will call the edge image.
    
-Edge Image:
+
 ![edges](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/c4463939-417c-42db-91ae-4380226a6af3)
-                                               Edge Image
+                                             
 
 5. Calculate the height and width of the edge image.
 6. Count the number of white pixels in the edge image. 
