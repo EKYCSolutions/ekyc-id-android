@@ -6,15 +6,15 @@
 ![](https://img.shields.io/badge/platform-android-blue) ![](https://img.shields.io/github/v/tag/EKYCSolutions/ekyc-id-android?label=version)
 
 
-The EkycID Android SDK lets you build a fantastic OCR and Face Recognition experienced in your Android app.
+The EkycID Android SDK lets you build a fantastic OCR and Face Recognition experience in your Android app.
 
-With one quick scan, your users will be able to extract information from thier identity cards, passports, driver licenses, license plate, vehicle registration, covid-19 vaccinate card, and any other document by government-issued.
+With one quick scan, your users will be able to extract information from their identity cards, passports, driver licenses, license plates, vehicle registration, COVID-19 vaccination card, and any other government-issued document.
 
 
 EkycID is:
-* Easy to integrate into existing ecosystems and solutions through the use of SDKs that supported both native and hybrid applications.
-* Better for user experience being that the document detections and liveness checks are done directly offline on the device.
-* Great for cutting down operations cost and increasing efficiency by decreasing reliance on human labor and time needed for manual data entry. 
+* Easy to integrate into existing ecosystems and solutions through the use of SDKs that support both native and hybrid applications.
+* Better for user experience because the document detection and liveness checks are done directly offline on the device.
+* Great for cutting down operations costs and increasing efficiency by decreasing reliance on human labor and the time needed for manual data entry. 
 
 
 EkycID can:
@@ -23,7 +23,7 @@ EkycID can:
 * Verify the authenticity of the identity documents by combining the power of document detection, OCR, liveness detection, and face recognition. 
 
 
-To see all of these features at work download our free demo app:
+To see all of these features at work, download our free demo app:
 
 <a href='https://play.google.com/store/apps/details?id=com.ekyc.demo_app&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="300" 
      height="100"/>
