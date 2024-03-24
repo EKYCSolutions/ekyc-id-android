@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ekycsolutions</groupId>
   <artifactId>ekyc-id</artifactId>
-  <version>1.0.20</version>
+  <version>1.0.26</version>
   <packaging>aar</packaging>
   <dependencies>
     <dependency>
@@ -78,19 +77,14 @@
       <version>1.2.0-alpha02</version>
     </dependency>
     <dependency>
-      <groupId>com.squareup.okhttp3</groupId>
-      <artifactId>okhttp</artifactId>
-      <version>4.9.2</version>
-    </dependency>
-    <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-android-extensions-runtime</artifactId>
-      <version>1.6.0</version>
+      <version>1.7.21</version>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk7</artifactId>
-      <version>1.6.0</version>
+      <version>1.7.21</version>
     </dependency>
     <dependency>
       <groupId>com.airbnb.android</groupId>
@@ -102,27 +96,31 @@
       <artifactId>round-corner-progress-bar</artifactId>
       <version>2.1.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.jcodec</groupId>
+      <artifactId>jcodec</artifactId>
+      <version>0.2.3</version>
+    </dependency>
   </dependencies>
-  <build>
+<build>
     <plugins>
-      <plugin>
+        <plugin>
         <groupId>com.simpligility.maven.plugins</groupId>
         <artifactId>android-maven-plugin</artifactId>
         <version>4.6.0</version>
         <extensions>true</extensions>
         <configuration>
-          <sign>
+            <sign>
             <debug>false</debug>
-          </sign>
+            </sign>
         </configuration>
-      </plugin>
-      <plugin>
+        </plugin>
+        <plugin>
         <artifactId>maven-install-plugin</artifactId>
         <version>2.3.1</version>
         <configuration>
-          <createChecksum>true</createChecksum>
+            <createChecksum>true</createChecksum>
         </configuration>
-      </plugin>
+        </plugin>
     </plugins>
-  </build>
-</project>
+</build></project>
