@@ -226,40 +226,6 @@ class MainActivity : AppCompatActivity(), LivenessDetectionEventListener {
 
 To perform face compare and ocr, you can call your server that integrated with our [NodeSDK]() to get face compare score and ocr response respectively.
 
-## 3.4 Blur Detection 
-
-This section outlines the Canny Edge Detection algorithm that is used to detect bluriness in scanning the documents. 
-
-The Canny Edge Detection algorithm is a popular method for detecting edges in digital images.
-An edge is a boundary or transition region between two different regions or objects in an image. It represents a significant change in pixel intensity or color values.
-Less pronounced or fewer detected edges in an image can indicate blurriness or a lack of sharp transitions between objects or regions, hence why this algorithm was chosen.
-
-Given an image, here are the steps performed on it to determine blurriness: 
-
-1. Warp the image using the perspective transformation matrix to obtain a cropped and transformed image.
-
- ![warped](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/0c025544-3b26-4bff-9996-884fa169a9c3)
-                                        
-
-2. Convert the warped image to grayscale.
-3. Apply Gaussian blur to the grayscale image.
-
-
- ![grey](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/0405e3b2-f619-41e6-a4d5-a0d1d2a5e012)
-                                            
-
-   
-4. Perform Canny Edge Detection on the original image. This will produce an output which we will call the edge image.
-   
-
- ![edges](https://github.com/EKYCSolutions/ekyc-id-android/assets/86823472/c4463939-417c-42db-91ae-4380226a6af3)
-                                             
-
-5. Calculate the height and width of the edge image.
-6. Count the number of white pixels in the edge image. 
-7. Calculate the ratio of white pixels to the total number of pixels of the image ( width * height )
-8. If the calculated ratio is less than or equal to the set ratio, the image is determined to be blurry.
-
 # 4. Contact
 <p>For any other questions, feel free to contact us at 
   <a href="https://ekycsolutions.com/">ekycsolutions.com</a>
