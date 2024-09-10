@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ekycsolutions</groupId>
   <artifactId>ekyc-id</artifactId>
-  <version>1.0.45</version>
+  <version>1.0.46</version>
   <packaging>aar</packaging>
   <dependencies>
     <dependency>
@@ -34,17 +34,17 @@
     <dependency>
       <groupId>org.tensorflow</groupId>
       <artifactId>tensorflow-lite</artifactId>
-      <version>0.0.0-nightly</version>
+      <version>2.16.1</version>
     </dependency>
     <dependency>
       <groupId>org.tensorflow</groupId>
       <artifactId>tensorflow-lite-select-tf-ops</artifactId>
-      <version>0.0.0-nightly</version>
+      <version>2.16.1</version>
     </dependency>
     <dependency>
       <groupId>org.tensorflow</groupId>
       <artifactId>tensorflow-lite-support</artifactId>
-      <version>0.0.0-nightly-SNAPSHOT</version>
+      <version>0.4.4</version>
     </dependency>
     <dependency>
       <groupId>com.google.zxing</groupId>
@@ -100,6 +100,11 @@
       <groupId>org.jcodec</groupId>
       <artifactId>jcodec</artifactId>
       <version>0.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.ai.edge.litert</groupId>
+      <artifactId>litert-api</artifactId>
+      <version>1.0.1</version>
     </dependency>
   </dependencies>
 <build>
