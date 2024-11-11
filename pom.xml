@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ekycsolutions</groupId>
   <artifactId>ekyc-id</artifactId>
-  <version>1.0.49</version>
+  <version>1.0.50</version>
   <packaging>aar</packaging>
   <dependencies>
     <dependency>
